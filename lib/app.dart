@@ -36,15 +36,15 @@ class _MyAppState extends State<PortfolioApp> {
           //   GlobalCupertinoLocalizations.delegate,
           // ],
           theme: ThemeData(
-            appBarTheme: getAppBarTheme(context),
-            fontFamily: 'HindSiliguri',
+            // appBarTheme: getAppBarTheme(context),
+            fontFamily: 'Poppins',
             // colorSchemeSeed: AppColor.primary,
             colorScheme: ColorScheme.fromSeed(
               seedColor: AppColor.primary,
               primary: AppColor.primary,
               surface: AppColor.white,
             ),
-            scaffoldBackgroundColor: AppColor.white,
+            scaffoldBackgroundColor: AppColor.primary,
             textTheme: getTextTheme(context),
           ),
         );

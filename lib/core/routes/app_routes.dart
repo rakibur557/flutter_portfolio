@@ -3,21 +3,21 @@ import 'package:flutter_portfolio/core/exports/app_exports.dart';
 class AppRoute {
   ///------Route paths------///
   static const String _splashScreenPath = "/splash_screen";
-  static const String _welcomeScreenPath = "/welcome_screen";
+  static const String _homeScreenPath = "/home";
 
   ///------Route name------///
   static const String splashScreen = "splashScreen";
-  static const String welcomeScreen = "welcomeScreen";
+  static const String homeScreen = "homeScreen";
 
   static final router = GoRouter(
-    initialLocation: _splashScreenPath,
-    // navigatorKey: FutureSchoolApp.navigatorKey,
+    initialLocation: _homeScreenPath,
+    navigatorKey: PortfolioApp.navigatorKey,
     routes: [
-      // GoRoute(
-      //   name: splashScreen,
-      //   path: _splashScreenPath,
-      //   builder: (context, state) => const SplashScreen(),
-      // ),
+      GoRoute(
+        name: homeScreen,
+        path: _homeScreenPath,
+        builder: (context, state) => HomeScreen(),
+      ),
       // GoRoute(
       //   name: welcomeScreen,
       //   path: _welcomeScreenPath,

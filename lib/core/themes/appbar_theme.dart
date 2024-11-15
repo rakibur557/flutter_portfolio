@@ -8,7 +8,7 @@ AppBarTheme getAppBarTheme(context) => AppBarTheme(
       // shadowColor: Colors.black,
       titleTextStyle: TextStyle(
         fontSize: 18.sp,
-        color: AppColor.black,
+        color: AppColor.primary,
         fontWeight: FontWeight.w600,
         // fontWeight: FontWeight.w500,
       ),
