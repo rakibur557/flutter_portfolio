@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter_portfolio/core/exports/app_exports.dart';
 import 'package:flutter_portfolio/features/screens/home/controller/home_screen_controller.dart';
 import 'package:flutter_portfolio/features/widgets/custom_button.dart';
+import 'package:flutter_portfolio/features/widgets/custom_card.dart';
+import 'package:flutter_portfolio/features/widgets/custom_tab_bar.dart';
 import 'package:flutter_portfolio/utils/assets_path.dart';
 import 'package:flutter_portfolio/utils/constants.dart';
 import 'package:flutter_svg/svg.dart';
@@ -24,6 +26,32 @@ class _HomeScreenState extends State<HomeScreen> {
     'Android',
     'iOS',
     'About Me'
+  ];
+  final List<String> iconPath = [
+    AssetsPath.intellijIdea,
+    AssetsPath.xcode,
+    AssetsPath.postman,
+    AssetsPath.androidStudio,
+    AssetsPath.vscode,
+    AssetsPath.admob,
+    AssetsPath.googlePlayStore,
+    AssetsPath.figma,
+    AssetsPath.git,
+    AssetsPath.mysql,
+    AssetsPath.mongodbIcon,
+    AssetsPath.mongodb,
+    AssetsPath.firebase,
+    AssetsPath.appleIcon,
+    AssetsPath.androidIcon,
+    AssetsPath.python,
+    AssetsPath.cPlusPlus,
+    AssetsPath.c,
+    AssetsPath.kotlin,
+    AssetsPath.javaScript,
+    AssetsPath.java,
+    AssetsPath.dart,
+    AssetsPath.flutter,
+    AssetsPath.github
   ];
 
   // @override
@@ -463,8 +491,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
                       ///image container
                       child: Container(
-                        height: 510,
-                        width: 500,
+                        height: 130.w,
+                        width: 120.w,
                         decoration: BoxDecoration(
                           // borderRadius: BorderRadius.circular(16),
                           image: DecorationImage(
@@ -572,134 +600,145 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                /*
-                child: Column(
+              ),
+            ),
+            // Container(
+            //   height: 500,
+            //   color: const Color(0xFF212429),
+            //   child: Center(
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //       children: [
+            //         CustomCard(
+            //           child: Image.asset(
+            //             AssetsPath.android,
+            //             height: 50,
+            //             width: 50,
+            //           ),
+            //         ),
+            //         CustomCard(
+            //           child: Image.asset(
+            //             AssetsPath.web,
+            //             height: 50,
+            //             width: 50,
+            //           ),
+            //         ),
+            //         CustomCard(
+            //           child: Image.asset(
+            //             AssetsPath.desktop,
+            //             height: 50,
+            //             width: 50,
+            //           ),
+            //         ),
+            //         CustomCard(
+            //           child: SvgPicture.asset(
+            //             AssetsPath.facebook,
+            //             height: 50,
+            //             width: 50,
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
+
+            GetBuilder<HomeScreenController>(
+              builder: (controller) {
+                return Column(
                   children: [
-                    SizedBox(height: 200),
-                    Row(
-                      children: [
-                        ///texts
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              height: 90,
-                              width: 90,
-                              child: Lottie.asset(
-                                AssetsPath.helloLottie,
-                              ),
-                            ),
-                            Text(
-                              'Hi there, I am',
-                              style: TextStyle(
-                                  color: AppColor.white,
-                                  fontSize: 5.sp,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            Text(
-                              'Md. Rakibur Rahman',
-                              style: TextStyle(
-                                  color: AppColor.white,
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              'Senior Flutter Developer',
-                              style: TextStyle(
-                                  color: AppColor.white,
-                                  fontSize: 5.sp,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              'Android | IOS | Desktop ',
-                              style: TextStyle(
-                                  color: AppColor.white,
-                                  fontSize: 4.sp,
-                                  fontWeight: FontWeight.w300),
-                            ),
-                            SizedBox(height: 20),
-                            Row(
-                              children: [
-                                CustomButton(
-                                  btnColor: AppColor.deepNavy,
-                                  borderColor: AppColor.tealAccent,
-                                  hoverBorderColor: AppColor.crimsonAccent,
-                                  btnText: 'Hire Me',
-                                  onTap: () {},
-                                  borderRadius: 16,
-                                ),
-                                SizedBox(width: 10),
-                                CustomButton(
-                                  btnColor: AppColor.deepPurple,
-                                  borderColor: AppColor.royalBlueAccent,
-                                  hoverBorderColor: AppColor.magentaAccent,
-                                  btnText: 'Download Resume',
-                                  onTap: () {},
-                                  borderRadius: 16,
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 50),
-                          ],
-                        ),
-
-                        const Spacer(),
-
-                        ///image container
-                        Container(
-                          height: 410,
-                          width: 400,
-                          decoration: BoxDecoration(
-                            // borderRadius: BorderRadius.circular(16),
-                            image: DecorationImage(
-                              image: AssetImage(AssetsPath.rakibImage),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
+                    CustomTabBar(
+                      tabs: const [
+                        'Education',
+                        'Professional Skills',
+                        'Experience',
+                        'Interview',
                       ],
+                      tabController: controller.tabController,
                     ),
-
-                    ///image bellow container
-                    ClipRRect(
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                        child: Container(
-                          height: 100,
-                          width: double.maxFinite,
-                          decoration: BoxDecoration(
-                            color: AppColor.primary.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(16),
-                            border: Border.all(
-                                color: Colors.white.withOpacity(0.2)),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              SvgPicture.asset(AssetsPath.linkedinColor),
-                              SvgPicture.asset(AssetsPath.facebookColor),
-                              SvgPicture.asset(AssetsPath.githubColor),
-                              SvgPicture.asset(AssetsPath.twitterColor),
-                              SvgPicture.asset(AssetsPath.youtubeColor),
-                              SvgPicture.asset(AssetsPath.instagramColor),
-                            ],
-                          ),
-                        ),
+                    Expanded(
+                      child: TabBarView(
+                        controller: controller.tabController,
+                        children: const [
+                          Center(
+                              child: Text('Education',
+                                  style: TextStyle(fontSize: 24))),
+                          Center(
+                              child: Text('Professional Skills',
+                                  style: TextStyle(fontSize: 24))),
+                          Center(
+                              child: Text('Experience',
+                                  style: TextStyle(fontSize: 24))),
+                          Center(
+                              child: Text('Interview',
+                                  style: TextStyle(fontSize: 24))),
+                        ],
                       ),
                     ),
                   ],
-                ),
-                */
-              ),
+                );
+              },
             ),
+
             Container(
-              height: 500,
-              color: AppColor.primary,
-              child: Center(
-                child: Text('data'),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 120, vertical: 60),
+              height: 1000,
+              width: double.maxFinite,
+              color: const Color(0xFF212429),
+              child: Column(
+                children: [
+                  Text(
+                    'MY SKILLS',
+                    style:
+                        TextStyle(fontSize: 8.sp, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 40),
+                  // Row(
+                  //   children: [
+                  //     CustomCard(
+                  //         child: SvgPicture.asset(
+                  //       AssetsPath.flutter,
+                  //       height: 60,
+                  //       width: 60,
+                  //     )),
+                  //     CustomCard(
+                  //         child: SvgPicture.asset(
+                  //       AssetsPath.flutter,
+                  //       height: 60,
+                  //       width: 60,
+                  //     )),
+                  //     CustomCard(
+                  //         child: SvgPicture.asset(
+                  //       AssetsPath.flutter,
+                  //       height: 60,
+                  //       width: 60,
+                  //     )),
+                  //   ],
+                  // ),
+
+                  //here tabbar
+
+                  Expanded(
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: 100, // Max width for each grid item
+                        crossAxisSpacing: 16, // Space between columns
+                        mainAxisSpacing: 16, // Space between rows
+                      ),
+                      itemCount: iconPath.length,
+                      itemBuilder: (context, index) {
+                        return CustomCard(
+                          child: SvgPicture.asset(
+                            iconPath[index],
+                            // height: 30,
+                            // width: 30,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
               ),
             ),
             Container(

@@ -9,6 +9,15 @@ class HomeScreenController extends GetxController {
   @override
   void onInit() {
     _scrollController.addListener(_scrollListener);
+    //tab
+    tabController = TabController(length: 4, vsync: NavigatorState());
+    tabController.addListener(() {
+      if (tabController.indexIsChanging ||
+          tabController.index != selectedIndex) {
+        selectedIndex = tabController.index;
+        update(); // Notify GetBuilder to rebuild
+      }
+    });
     super.onInit();
   }
 
@@ -32,5 +41,16 @@ class HomeScreenController extends GetxController {
       }
     }
     update();
+  }
+
+  late TabController tabController;
+
+  // The selected index of the tab
+  int selectedIndex = 0;
+
+  @override
+  void onClose() {
+    tabController.dispose();
+    super.onClose();
   }
 }
