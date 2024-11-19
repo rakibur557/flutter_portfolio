@@ -1,16 +1,22 @@
 import 'package:flutter_portfolio/core/exports/app_exports.dart';
 
-class HomeScreenController extends GetxController {
+class HomeScreenController extends GetxController
+    with GetTickerProviderStateMixin {
   final ScrollController _scrollController = ScrollController();
   bool _enableBackdrop = false;
   bool get enableBackdrop => _enableBackdrop;
   ScrollController get scrollController => _scrollController;
 
+  late TabController tabController;
+  // The selected index of the tab
+  int selectedIndex = 0;
+
   @override
   void onInit() {
     _scrollController.addListener(_scrollListener);
     //tab
-    tabController = TabController(length: 4, vsync: NavigatorState());
+    // Initialize TabController
+    tabController = TabController(length: 4, vsync: this);
     tabController.addListener(() {
       if (tabController.indexIsChanging ||
           tabController.index != selectedIndex) {
@@ -42,11 +48,6 @@ class HomeScreenController extends GetxController {
     }
     update();
   }
-
-  late TabController tabController;
-
-  // The selected index of the tab
-  int selectedIndex = 0;
 
   @override
   void onClose() {

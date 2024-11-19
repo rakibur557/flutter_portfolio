@@ -17,7 +17,7 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   final List<String> menuItems = [
     'Home',
     'Skills',
@@ -655,7 +655,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                       tabController: controller.tabController,
                     ),
-                    Expanded(
+                    SizedBox(
+                      height: 100,
+                      width: 500,
                       child: TabBarView(
                         controller: controller.tabController,
                         children: const [
