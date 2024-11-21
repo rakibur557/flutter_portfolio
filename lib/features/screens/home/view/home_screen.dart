@@ -671,7 +671,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               child: Text('Experience',
                                   style: TextStyle(fontSize: 24))),
                           Center(
-                              child: Text('Interview',
+                              child: Text('Testimonial',
                                   style: TextStyle(fontSize: 24))),
                         ],
                       ),
